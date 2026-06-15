@@ -80,7 +80,7 @@ export default function EventDetailsPage() {
                 </div>
                 <div className="py-6 px-6">
                   <div className="font-mono text-[9px] tracking-[0.2em] uppercase text-[#8A8278] mb-2">Admission</div>
-                  <div className="font-serif text-[20px] font-medium text-[#C8A85F] mb-0.5">{event.price === 'Free' || event.price === '0' ? 'Free Entry' : `₹${event.price}`}</div>
+                  <div className="font-serif text-[20px] font-medium text-[#C8A85F] mb-0.5">{event.price === 0 ? 'Free Entry' : `₹${event.price}`}</div>
                   <div className="font-sans text-[12px] text-[#C9C1B2]">{event.priceLabel || 'Tickets available'}</div>
                 </div>
                 <div className="py-6 pl-6">
@@ -264,7 +264,7 @@ export default function EventDetailsPage() {
                     </div>
                   </div>
                   <h2 className="font-serif text-[42px] font-medium leading-none" style={{ color: '#2B5E56' }}>
-                    {event.price === 'Free' || event.price === '0' ? 'Free Entry' : `₹${event.price}`}
+                    {event.price === 0 ? 'Free Entry' : `₹${event.price}`}
                   </h2>
                 </div>
 
@@ -380,7 +380,7 @@ export default function EventDetailsPage() {
               <div>
                 <div className="font-mono text-[10px] tracking-[0.2em] uppercase text-[#A38952] mb-3">More from the season</div>
                 <h2
-                  className="font-serif text-3xl md:text-4xl font-semibold leading-none"
+                  className="font-serif text-[32px] md:text-[40px] leading-none"
                   style={{ color: '#14110D' }}
                 >
                   You might <em className="italic">also like</em>
@@ -417,7 +417,7 @@ export default function EventDetailsPage() {
           {/* Left: Price + Meta */}
           <div className="flex flex-col min-w-0">
             <span className="font-serif text-[22px] font-semibold leading-none mb-1" style={{ color: '#2B5E56' }}>
-              {event.price === 'Free' || event.price === '0' ? 'Free' : `₹${event.price}`}
+              {event.price === 0 ? 'Free' : `₹${event.price}`}
             </span>
             <span className="font-sans text-xs truncate" style={{ color: '#8A8278' }}>
               {event.date} · {event.venue}
