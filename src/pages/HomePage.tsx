@@ -11,6 +11,13 @@ const GENRES = [
   { label: 'Comedy',          icon: Mic2,     count: '52 events'  },
 ];
 
+const CITIES = [
+  { label: 'Mumbai',    count: '342 events' },
+  { label: 'Delhi NCR', count: '281 events' },
+  { label: 'Bengaluru', count: '215 events' },
+  { label: 'Chennai',   count: '94 events'  },
+];
+
 export default function HomePage() {
   const featuredEvents = EVENTS.filter(e => e.isFeatured);
   const hero = FEATURED_EVENT;
@@ -207,7 +214,7 @@ export default function HomePage() {
             </h2>
           </div>
 
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-16">
             {GENRES.map(({ label, count }) => (
               <a
                 key={label}
@@ -218,6 +225,40 @@ export default function HomePage() {
                 <div className="absolute inset-0 bg-gradient-to-t from-brand-bgWarm/90 to-transparent" />
                 
                 <div className="relative z-10 h-full flex flex-col justify-end">
+                  <h3 className="font-serif text-[23px] font-medium m-0 text-brand-ink">{label}</h3>
+                  <span className="font-mono text-[10px] tracking-[0.14em] uppercase text-brand-inkMute mt-1.5">{count}</span>
+                </div>
+              </a>
+            ))}
+          </div>
+
+          {/* ─── CITIES GRID ─── */}
+          <div className="mb-8 border-t border-[rgba(247,244,238,0.1)] pt-12">
+            <div className="flex items-center gap-3 mb-3">
+              <span className="h-px w-7 bg-brand-gold inline-block" />
+              <span className="font-mono text-[10px] font-medium tracking-[0.22em] uppercase text-brand-goldBright">
+                Local events
+              </span>
+            </div>
+            <h2 className="font-serif font-normal leading-[1.05] tracking-[-0.02em] m-0" style={{ fontSize: 'clamp(28px,3vw,38px)' }}>
+              Browse <em className="italic">by city</em>
+            </h2>
+          </div>
+
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+            {CITIES.map(({ label, count }) => (
+              <a
+                key={label}
+                href="#"
+                className="relative aspect-[16/11] overflow-hidden rounded-[4px] cursor-pointer bg-brand-bgWarm text-brand-ink no-underline block p-6 group border border-brand-hairline"
+              >
+                <div className="absolute inset-0 bg-brand-bgWarm transition-transform duration-700 group-hover:scale-105" />
+                <div className="absolute inset-0 bg-gradient-to-t from-brand-bgWarm/90 to-transparent" />
+                
+                <div className="relative z-10 h-full flex flex-col justify-end">
+                  <div className="flex items-center gap-2 mb-2 text-brand-goldBright">
+                    <MapPin size={20} strokeWidth={1.5} />
+                  </div>
                   <h3 className="font-serif text-[23px] font-medium m-0 text-brand-ink">{label}</h3>
                   <span className="font-mono text-[10px] tracking-[0.14em] uppercase text-brand-inkMute mt-1.5">{count}</span>
                 </div>
