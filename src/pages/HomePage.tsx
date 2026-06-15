@@ -12,10 +12,10 @@ const GENRES = [
 ];
 
 const CITIES = [
-  { label: 'Mumbai',    count: '342 events' },
-  { label: 'Delhi NCR', count: '281 events' },
-  { label: 'Bengaluru', count: '215 events' },
-  { label: 'Chennai',   count: '94 events'  },
+  { label: 'Chandigarh', count: '142 events', image: 'https://images.unsplash.com/photo-1514525253161-7a46d19cd819?auto=format&fit=crop&w=600&q=80' },
+  { label: 'Mohali',     count: '81 events',  image: 'https://images.unsplash.com/photo-1459749411175-04bf5292ceea?auto=format&fit=crop&w=600&q=80' },
+  { label: 'Panchkula',  count: '45 events',  image: 'https://images.unsplash.com/photo-1540039155732-d674d40d4c3f?auto=format&fit=crop&w=600&q=80' },
+  { label: 'Zirakpur',   count: '24 events',  image: 'https://images.unsplash.com/photo-1470229722913-7c090be8bf52?auto=format&fit=crop&w=600&q=80' },
 ];
 
 export default function HomePage() {
@@ -246,21 +246,21 @@ export default function HomePage() {
           </div>
 
           <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
-            {CITIES.map(({ label, count }) => (
+            {CITIES.map(({ label, count, image }) => (
               <a
                 key={label}
                 href="#"
-                className="relative aspect-[16/11] overflow-hidden rounded-[4px] cursor-pointer bg-brand-bgWarm text-brand-ink no-underline block p-6 group border border-brand-hairline"
+                className="relative aspect-[3/4] overflow-hidden rounded-[4px] cursor-pointer bg-brand-dark text-brand-ink no-underline block p-6 group border border-brand-hairline"
               >
-                <div className="absolute inset-0 bg-brand-bgWarm transition-transform duration-700 group-hover:scale-105" />
-                <div className="absolute inset-0 bg-gradient-to-t from-brand-bgWarm/90 to-transparent" />
+                <img src={image} alt={label} className="absolute inset-0 w-full h-full object-cover opacity-80 transition-transform duration-700 group-hover:scale-110" />
+                <div className="absolute inset-0 bg-gradient-to-t from-[#14110D] via-[#14110D]/40 to-transparent" />
                 
                 <div className="relative z-10 h-full flex flex-col justify-end">
                   <div className="flex items-center gap-2 mb-2 text-brand-goldBright">
                     <MapPin size={20} strokeWidth={1.5} />
                   </div>
-                  <h3 className="font-serif text-[23px] font-medium m-0 text-brand-ink">{label}</h3>
-                  <span className="font-mono text-[10px] tracking-[0.14em] uppercase text-brand-inkMute mt-1.5">{count}</span>
+                  <h3 className="font-serif text-[23px] font-medium m-0 text-[#F7F4EE] drop-shadow-sm">{label}</h3>
+                  <span className="font-mono text-[10px] tracking-[0.14em] uppercase text-[#F7F4EE]/70 mt-1.5">{count}</span>
                 </div>
               </a>
             ))}
