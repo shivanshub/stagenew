@@ -23,15 +23,11 @@ export default function Navbar() {
   useEffect(() => { setMenuOpen(false); }, [location]);
 
   return (
-    <>
-      <header
-        role="banner"
-        className="fixed top-0 left-0 right-0 z-50 transition-colors duration-250"
-        style={{
-          background: scrolled || menuOpen ? '#14110D' : '#14110D', // Solid dark to match screenshot
-          borderBottom: '1px solid rgba(247,244,238,0.10)',
-        }}
-      >
+    <header
+      role="banner"
+      className="w-full transition-colors duration-250"
+      style={{ background: 'transparent' }}
+    >
         <nav
           aria-label="Primary"
           className="max-w-container mx-auto flex items-center justify-between gap-6 flex-wrap h-[70px] px-6 md:px-10"
@@ -84,6 +80,7 @@ export default function Navbar() {
             <button
               type="button"
               aria-label="Search"
+              onClick={() => window.dispatchEvent(new CustomEvent('open-search'))}
               className="w-10 h-10 grid place-items-center bg-transparent border-0 cursor-pointer text-[#C9C1B2] hover:text-[#F7F4EE] hover:bg-[#F7F4EE]/5 rounded-full transition-colors"
             >
               <Search size={16} strokeWidth={2} />
@@ -112,6 +109,7 @@ export default function Navbar() {
             <button
               type="button"
               aria-label="Search"
+              onClick={() => window.dispatchEvent(new CustomEvent('open-search'))}
               className="w-10 h-10 grid place-items-center bg-transparent border-0 cursor-pointer text-[#C9C1B2]"
             >
               <Search size={18} />
@@ -155,9 +153,5 @@ export default function Navbar() {
           </div>
         )}
       </header>
-
-      {/* Nav spacer */}
-      <div aria-hidden="true" style={{ height: 70 }} />
-    </>
   );
 }

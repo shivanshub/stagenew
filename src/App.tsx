@@ -1,6 +1,7 @@
 import { useEffect } from 'react';
 import { BrowserRouter, Routes, Route, useLocation } from 'react-router-dom';
 import Navbar from './components/Navbar';
+import CategoryStrip from './components/CategoryStrip';
 import Footer from './components/Footer';
 import HomePage from './pages/HomePage';
 import EventDetailsPage from './pages/EventDetailsPage';
@@ -26,7 +27,14 @@ export default function App() {
         Skip to main content
       </a>
 
-      <Navbar />
+      {/* Unified top navigation — Navbar + Category strip as one block */}
+      <div
+        className="fixed top-0 left-0 right-0 z-50"
+        style={{ background: '#14110D', borderBottom: '1px solid rgba(247,244,238,0.09)' }}
+      >
+        <Navbar />
+        <CategoryStrip />
+      </div>
 
       <Routes>
         <Route path="/"             element={<HomePage />} />

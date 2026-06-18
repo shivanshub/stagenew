@@ -21,6 +21,7 @@ export interface Event {
   artistBio: string;
   tags: string[];
   isFeatured?: boolean;
+  isPromoted?: boolean;
   isNew?: boolean;
   soldOut?: boolean;
   seatsLeft?: number;
@@ -66,6 +67,7 @@ Accompanied by Pandit Suresh Talwalkar on tabla and Rajeev Devasthali on harmoni
     artistBio: 'Ritu Agarwal is a senior vocalist of the Jaipur-Atrauli gharana, having trained under Padma Bhushan Kishori Amonkar for over two decades. She has performed at prestigious venues including the Sawai Gandharva Bhimsen Mahotsav and the Dover Lane Music Conference.',
     tags: ['Hindustani', 'Vocal', 'Gharana', 'Evening Raga'],
     isFeatured: true,
+    isPromoted: true,
     seatsLeft: 34,
   },
   {
@@ -123,6 +125,7 @@ The programme includes Alarippu, Jatiswaram, Shabdam, Varnam (the centrepiece), 
     artist: 'Divya Nair',
     artistBio: 'Divya Nair trained under Guru Leela Samson at the Spanda Dance Company in New Delhi. She holds a postgraduate degree in Performing Arts from Sangit Natak Akademi.',
     tags: ['Bharatanatyam', 'Arangetram', 'Classical', 'Debut'],
+    isPromoted: true,
     seatsLeft: 67,
   },
   {
@@ -180,6 +183,7 @@ Content advisory: Strong language throughout. The show contains material on ment
     artistBio: 'Aditi Mittal is one of India\'s most acclaimed stand-up comedians, with three specials on Netflix and Amazon Prime. She was named in Forbes India\'s 30 Under 30 list and has performed at festivals in Edinburgh, Melbourne, and New York.',
     tags: ['Stand-Up', 'Comedy Special', 'Sold Out Tour', 'Hinglish'],
     isFeatured: true,
+    isPromoted: true,
     seatsLeft: 41,
   },
   {
