@@ -26,7 +26,7 @@ export default function EventCarousel({ events, title = 'Upcoming Events', subti
 
   return (
     <section id="events" aria-label={title} className="py-16 md:py-24">
-      <div className="max-w-container mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="max-w-container mx-auto px-6 md:px-10">
 
         {/* Section header */}
         <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-4 mb-8">
@@ -38,8 +38,8 @@ export default function EventCarousel({ events, title = 'Upcoming Events', subti
               What's On
             </p>
             <h2
-              className="font-serif text-3xl md:text-4xl font-semibold"
-              style={{ color: '#F7F4EE', lineHeight: 1.1 }}
+              className="font-serif font-normal leading-[1.05] tracking-[-0.02em] m-0"
+              style={{ color: '#F7F4EE', fontSize: 'clamp(28px,3vw,38px)' }}
             >
               {title}
             </h2>

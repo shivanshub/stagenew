@@ -120,35 +120,35 @@ export default function HomePage() {
           TRUST STRIP (DARK BG)
       ══════════════════════════════════════════════ */}
       <section className="bg-[#14110D] text-[#F7F4EE]">
-        <div className="max-w-container mx-auto px-10">
+        <div className="max-w-container mx-auto px-6 md:px-10">
           <div className="grid grid-cols-1 md:grid-cols-3">
-            
-            <div className="py-9 pr-8 flex gap-4 items-start border-y border-[rgba(247,244,238,0.1)]">
+
+            <div className="py-9 md:pr-8 flex gap-4 items-center border-y border-[rgba(247,244,238,0.1)]">
               <span aria-hidden="true" className="w-12 h-12 rounded-full flex-shrink-0 border border-[#C8A85F] grid place-items-center text-[#C8A85F]">
                 <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><path d="M2 9a3 3 0 0 1 0 6v2a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2v-2a3 3 0 0 1 0-6V7a2 2 0 0 0-2-2H4a2 2 0 0 0-2 2Z"></path><path d="M13 5v2M13 17v2M13 11v2"></path></svg>
               </span>
               <div>
-                <h3 className="font-serif font-medium text-[18px] m-0 mb-1.5 mt-0.5 text-[#F7F4EE]">Free RSVP in seconds</h3>
+                <h3 className="font-serif font-medium text-[18px] m-0 mb-1.5 text-[#F7F4EE]">Free RSVP in seconds</h3>
                 <p className="text-[13px] text-[#8A8278] leading-[1.55] m-0 font-light max-w-[34ch]">Claim your spot and get a reminder. No checkout, no fuss — you only pay the organiser if there's a ticket.</p>
               </div>
             </div>
 
-            <div className="py-9 px-8 flex gap-4 items-start border-y border-[rgba(247,244,238,0.1)] md:border-l">
+            <div className="py-9 md:px-8 flex gap-4 items-center border-y border-[rgba(247,244,238,0.1)] md:border-l">
               <span aria-hidden="true" className="w-12 h-12 rounded-full flex-shrink-0 border border-[#C8A85F] grid place-items-center text-[#C8A85F]">
                 <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><circle cx="12" cy="12" r="10"></circle><polygon points="16.24 7.76 14.12 14.12 7.76 16.24 9.88 9.88 16.24 7.76"></polygon></svg>
               </span>
               <div>
-                <h3 className="font-serif font-medium text-[18px] m-0 mb-1.5 mt-0.5 text-[#F7F4EE]">Curated, not crawled</h3>
+                <h3 className="font-serif font-medium text-[18px] m-0 mb-1.5 text-[#F7F4EE]">Curated, not crawled</h3>
                 <p className="text-[13px] text-[#8A8278] leading-[1.55] m-0 font-light max-w-[34ch]">Every listing is hand-picked by our team — the grassroots gigs and gallery nights the big apps overlook.</p>
               </div>
             </div>
 
-            <div className="py-9 pl-8 flex gap-4 items-start border-y border-[rgba(247,244,238,0.1)] md:border-l">
+            <div className="py-9 md:pl-8 flex gap-4 items-center border-y border-[rgba(247,244,238,0.1)] md:border-l">
               <span aria-hidden="true" className="w-12 h-12 rounded-full flex-shrink-0 border border-[#C8A85F] grid place-items-center text-[#C8A85F]">
                 <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><path d="M6 8a6 6 0 0 1 12 0c0 7 3 9 3 9H3s3-2 3-9"></path><path d="M10.3 21a1.94 1.94 0 0 0 3.4 0"></path></svg>
               </span>
               <div>
-                <h3 className="font-serif font-medium text-[18px] m-0 mb-1.5 mt-0.5 text-[#F7F4EE]">Never miss the night</h3>
+                <h3 className="font-serif font-medium text-[18px] m-0 mb-1.5 text-[#F7F4EE]">Never miss the night</h3>
                 <p className="text-[13px] text-[#8A8278] leading-[1.55] m-0 font-light max-w-[34ch]">Add to calendar, bookmark and share. We nudge you before doors open — on web and the Android app.</p>
               </div>
             </div>
@@ -170,7 +170,7 @@ export default function HomePage() {
           CATEGORIES GRID (DARK BG)
       ══════════════════════════════════════════════ */}
       <section id="categories" className="bg-brand-bg text-brand-ink py-[72px]">
-        <div className="max-w-container mx-auto px-10">
+        <div className="max-w-container mx-auto px-6 md:px-10">
           
           <div className="mb-8">
             <div className="flex items-center gap-3 mb-3">
@@ -188,7 +188,7 @@ export default function HomePage() {
           <div className="mb-16">
 
             {/* MOBILE: Large vertically stacked cards, ~3 visible per screen */}
-            <div className="flex flex-col gap-4 md:hidden px-2">
+            <div className="flex flex-col gap-4 md:hidden">
               {GENRES.map(({ label, icon: Icon, count }) => (
                 <a
                   key={label}
@@ -368,7 +368,7 @@ export default function HomePage() {
           FEATURED/POPULAR SECTION (WARM BG)
       ══════════════════════════════════════════════ */}
       <section className="bg-brand-bgWarm text-brand-ink py-[72px]">
-        <div className="max-w-container mx-auto px-10">
+        <div className="max-w-container mx-auto px-6 md:px-10">
 
           <div className="flex items-end justify-between gap-6 mb-8 flex-wrap">
             <div>
@@ -411,7 +411,7 @@ export default function HomePage() {
           ABOUT SECTION (WARM BG)
       ══════════════════════════════════════════════ */}
       <section id="about" className="bg-brand-bgWarm text-brand-ink py-[80px]">
-        <div className="max-w-container mx-auto px-10">
+        <div className="max-w-container mx-auto px-6 md:px-10">
           <div className="max-w-[700px]">
             <div className="flex items-center gap-3 mb-6">
               <span className="h-px w-7 bg-brand-gold inline-block" />
