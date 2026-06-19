@@ -43,7 +43,7 @@ export default function HomePage() {
       {/* ══════════════════════════════════════════════
           HERO SECTION (DARK) - Matching Screenshot Exact Layout
       ══════════════════════════════════════════════ */}
-      <section className="relative min-h-[86vh] flex flex-col items-center justify-center text-center overflow-hidden" style={{ padding: '120px 24px 80px', backgroundColor: '#14110D' }}>
+      <section className="relative flex flex-col items-center justify-center text-center overflow-hidden" style={{ padding: '120px 24px 60px', background: '#14110D' }}>
         
         {/* Background Image & Glow */}
         <div aria-hidden="true" className="absolute inset-0">
@@ -67,7 +67,7 @@ export default function HomePage() {
 
         {/* Content */}
         <div className="relative z-10 w-full max-w-[1000px]">
-          
+
           {/* Label */}
           <div className="inline-flex items-center gap-[16px] mb-8">
             <span className="h-px w-[40px] bg-brand-goldDeep inline-block" />
@@ -77,24 +77,18 @@ export default function HomePage() {
             <span className="h-px w-[40px] bg-brand-goldDeep inline-block" />
           </div>
 
-          {/* Title */}
-          <h1 className="font-serif font-normal leading-[1.05] tracking-[-0.02em] text-[#F7F4EE] mx-auto mb-6" style={{ fontSize: 'clamp(48px, 7vw, 96px)' }}>
-            Unlock your city's<br className="hidden sm:block" />
-            <em className="italic font-normal"> live</em> entertainment.
-          </h1>
-
           {/* Subtitle */}
           <p className="font-serif italic font-normal text-[#C9C1B2] mx-auto mb-12 max-w-[54ch] leading-relaxed" style={{ fontSize: 'clamp(18px, 2vw, 22px)' }}>
             Curated theatre, comedy, music and dance across India — the<br className="hidden sm:block" /> grassroots nights the big ticketing apps never surface.
           </p>
 
           {/* Promoted Events Slideshow */}
-          <div className="mb-12">
+          <div className="mb-10">
             <HeroSlideshow events={promotedEvents} />
           </div>
 
           {/* Stat Strip */}
-          <div className="border-t border-[rgba(247,244,238,0.1)] pt-10 mt-10 w-full max-w-[800px] mx-auto">
+          <div className="border-t border-[rgba(247,244,238,0.1)] pt-10 mt-4 w-full max-w-[800px] mx-auto">
             <div className="grid grid-cols-2 md:grid-cols-4 gap-6 text-center">
               {[
                 { n: '12k+', l: 'Events listed' },
@@ -110,7 +104,6 @@ export default function HomePage() {
             </div>
           </div>
         </div>
-        
 
       </section>
 

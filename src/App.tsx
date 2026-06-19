@@ -1,5 +1,6 @@
 import { useEffect } from 'react';
 import { BrowserRouter, Routes, Route, useLocation } from 'react-router-dom';
+import { ThemeProvider } from './context/ThemeContext';
 import Navbar from './components/Navbar';
 import CategoryStrip from './components/CategoryStrip';
 import Footer from './components/Footer';
@@ -14,9 +15,9 @@ function ScrollToTop() {
   return null;
 }
 
-export default function App() {
+function AppInner() {
   return (
-    <BrowserRouter>
+    <>
       <ScrollToTop />
       {/* Skip link for keyboard accessibility */}
       <a
@@ -29,8 +30,7 @@ export default function App() {
 
       {/* Unified top navigation — Navbar + Category strip as one block */}
       <div
-        className="fixed top-0 left-0 right-0 z-50"
-        style={{ background: '#14110D', borderBottom: '1px solid rgba(247,244,238,0.09)' }}
+        className="fixed top-0 left-0 right-0 z-50 st-navbar"
       >
         <Navbar />
         <CategoryStrip />
@@ -43,6 +43,16 @@ export default function App() {
       </Routes>
 
       <Footer />
-    </BrowserRouter>
+    </>
+  );
+}
+
+export default function App() {
+  return (
+    <ThemeProvider>
+      <BrowserRouter>
+        <AppInner />
+      </BrowserRouter>
+    </ThemeProvider>
   );
 }
