@@ -1,6 +1,8 @@
 import { useEffect } from 'react';
 import { BrowserRouter, Routes, Route, useLocation } from 'react-router-dom';
 import { ThemeProvider } from './context/ThemeContext';
+import { AuthProvider } from './context/AuthContext';
+import { useFCM } from './hooks/useFCM';
 import Navbar from './components/Navbar';
 import CategoryStrip from './components/CategoryStrip';
 import Footer from './components/Footer';
@@ -16,6 +18,8 @@ function ScrollToTop() {
 }
 
 function AppInner() {
+  useFCM(); // Register for push notifications
+
   return (
     <>
       <ScrollToTop />
@@ -50,9 +54,11 @@ function AppInner() {
 export default function App() {
   return (
     <ThemeProvider>
-      <BrowserRouter>
-        <AppInner />
-      </BrowserRouter>
+      <AuthProvider>
+        <BrowserRouter>
+          <AppInner />
+        </BrowserRouter>
+      </AuthProvider>
     </ThemeProvider>
   );
 }

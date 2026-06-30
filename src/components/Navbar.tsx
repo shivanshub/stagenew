@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { Search, Bookmark, Menu, X, Sun, Moon } from 'lucide-react';
 import { useTheme } from '../context/ThemeContext';
+import { useAuth } from '../context/AuthContext';
 
 const NAV_LINKS = [
   { label: 'EVENTS',     href: '/#events' },
@@ -14,6 +15,7 @@ export default function Navbar() {
   const [menuOpen, setMenuOpen] = useState(false);
   const location = useLocation();
   const { theme, toggleTheme } = useTheme();
+  const { user, signIn, signOut, loading } = useAuth();
 
   useEffect(() => { setMenuOpen(false); }, [location]);
 
@@ -95,17 +97,34 @@ export default function Navbar() {
             }
           </button>
 
-          {/* Sign in */}
-          <Link
-            to="/login"
-            className="ml-2 px-6 py-2.5 text-[11px] tracking-[0.15em] uppercase font-sans font-bold rounded-[4px] transition-colors"
-            style={{
-              background: 'var(--st-btn-invert-bg)',
-              color: 'var(--st-btn-invert-text)',
-            }}
-          >
-            SIGN IN
-          </Link>
+          {/* Sign in / User profile */}
+          {loading ? null : user ? (
+            <div className="ml-2 flex items-center gap-2">
+              {user.photo && <img src={user.photo} alt="" className="w-8 h-8 rounded-full" />}
+              <span className="text-[11px] tracking-[0.1em] uppercase font-sans">{user.name ?? user.email}</span>
+              <button
+                onClick={signOut}
+                className="px-3 py-2 text-[10px] tracking-[0.15em] uppercase font-sans font-bold rounded-[4px] transition-colors ml-1"
+                style={{
+                  background: 'var(--st-btn-invert-bg)',
+                  color: 'var(--st-btn-invert-text)',
+                }}
+              >
+                Sign out
+              </button>
+            </div>
+          ) : (
+            <button
+              onClick={signIn}
+              className="ml-2 px-6 py-2.5 text-[11px] tracking-[0.15em] uppercase font-sans font-bold rounded-[4px] transition-colors"
+              style={{
+                background: 'var(--st-btn-invert-bg)',
+                color: 'var(--st-btn-invert-text)',
+              }}
+            >
+              SIGN IN
+            </button>
+          )}
         </div>
 
         {/* ── Mobile: search + theme + hamburger ─────────── */}
@@ -161,13 +180,31 @@ export default function Navbar() {
                 {link.label}
               </a>
             ))}
-            <Link
-              to="/login"
-              className="mt-4 text-center py-3 text-[11px] tracking-[0.2em] uppercase font-bold rounded-[4px]"
-              style={{ background: 'var(--st-btn-invert-bg)', color: 'var(--st-btn-invert-text)' }}
-            >
-              Sign in
-            </Link>
+            {loading ? null : user ? (
+              <>
+                <div className="py-3 border-b" style={{ borderColor: 'var(--st-hairline)' }}>
+                  <div className="flex items-center gap-2 mb-2">
+                    {user.photo && <img src={user.photo} alt="" className="w-8 h-8 rounded-full" />}
+                    <span className="text-[12px] tracking-[0.1em]">{user.name ?? user.email}</span>
+                  </div>
+                </div>
+                <button
+                  onClick={signOut}
+                  className="mt-2 w-full text-center py-3 text-[11px] tracking-[0.2em] uppercase font-bold rounded-[4px]"
+                  style={{ background: 'var(--st-btn-invert-bg)', color: 'var(--st-btn-invert-text)' }}
+                >
+                  Sign out
+                </button>
+              </>
+            ) : (
+              <button
+                onClick={signIn}
+                className="mt-4 text-center py-3 text-[11px] tracking-[0.2em] uppercase font-bold rounded-[4px] w-full"
+                style={{ background: 'var(--st-btn-invert-bg)', color: 'var(--st-btn-invert-text)' }}
+              >
+                Sign in
+              </button>
+            )}
           </nav>
         </div>
       )}

@@ -1,0 +1,25 @@
+name = "stage-time-worker"
+main = "src/index.ts"
+compatibility_date = "2024-12-16"
+compatibility_flags = ["nodejs_compat"]
+
+[[d1_databases]]
+binding = "DB"
+database_name = "stage-time-db"
+database_id = "8999f49c-d25d-4d62-853b-37fe0ecc5e63"
+
+[[kv_namespaces]]
+binding = "SESSIONS"
+id = "e81be9982665482fb36f165aaceda430"
+preview_id = "43a3cb0b395b4980af39873ad6025a41"
+
+[[r2_buckets]]
+binding = "MEDIA"
+bucket_name = "stage-time-media"
+
+[vars]
+FIREBASE_PROJECT_ID = "thestagetime"
+ALLOWED_ORIGIN = "https://stagenew.pages.dev"
+
+[observability]
+enabled = true
