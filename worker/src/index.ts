@@ -155,6 +155,52 @@ export default {
         return jsonResponse({ ok: true, sent: results.length }, 200, origin);
       }
 
+      // ── GET /events ──────────────────────────────────────────────────────
+      // Returns all events, optionally filtered by category.
+      if (url.pathname === '/events' && request.method === 'GET') {
+        const category = url.searchParams.get('category');
+        const { results } = category
+          ? await env.DB.prepare(
+              'SELECT * FROM events WHERE category = ?1 ORDER BY created_at DESC'
+            ).bind(category).all()
+          : await env.DB.prepare(
+              'SELECT * FROM events ORDER BY created_at DESC'
+            ).all();
+
+        // Parse tags JSON string back to array for each event
+        const events = results.map((e: Record<string, unknown>) => ({
+          ...e,
+          tags: JSON.parse(e.tags as string),
+          isFeatured:  Boolean(e.is_featured),
+          isPromoted:  Boolean(e.is_promoted),
+          isNew:       Boolean(e.is_new),
+          soldOut:     Boolean(e.sold_out),
+        }));
+
+        return jsonResponse(events, 200, origin);
+      }
+
+      // ── GET /events/:slug ─────────────────────────────────────────────────
+      // Returns a single event by slug.
+      const slugMatch = url.pathname.match(/^\/events\/([^/]+)$/);
+      if (slugMatch && request.method === 'GET') {
+        const slug = slugMatch[1];
+        const event = await env.DB.prepare(
+          'SELECT * FROM events WHERE slug = ?1'
+        ).bind(slug).first();
+
+        if (!event) return jsonResponse({ error: 'Event not found' }, 404, origin);
+
+        return jsonResponse({
+          ...event,
+          tags:       JSON.parse(event.tags as string),
+          isFeatured: Boolean(event.is_featured),
+          isPromoted: Boolean(event.is_promoted),
+          isNew:      Boolean(event.is_new),
+          soldOut:    Boolean(event.sold_out),
+        }, 200, origin);
+      }
+
       return jsonResponse({ error: 'Not found' }, 404, origin);
     } catch (err) {
       console.error(err);

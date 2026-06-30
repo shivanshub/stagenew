@@ -1,0 +1,51 @@
+INSERT OR REPLACE INTO events (id, slug, title, subtitle, category, date, time, venue, city, price, price_label, image, hero_image, duration, language, age_rating, description, long_description, artist, artist_bio, tags, is_featured, is_promoted, is_new, sold_out, seats_left)
+VALUES (
+  '1',
+  'raag-yaman-ritu-agarwal',
+  'Raag Yaman',
+  'An Evening of Hindustani Vocals',
+  'Classical Music',
+  '28 Jun 2025',
+  '7:00 PM',
+  'NCPA Tata Theatre',
+  'Mumbai',
+  800,
+  '₹800 onwards',
+  'https://images.unsplash.com/photo-1514320291840-2e0a9bf2a9ae?w=800&q=80',
+  'https://images.unsplash.com/photo-1514320291840-2e0a9bf2a9ae?w=1400&q=90',
+  '2 hrs 30 min',
+  'Hindi',
+  'All ages',
+  'An intimate evening of Hindustani classical vocals exploring the transcendent Raag Yaman.',
+  'Raag Yaman, one of Hindustani classical music''s most beloved evening ragas, takes centre stage in this intimate concert. Ritu Agarwal, a disciple of the Jaipur-Atrauli gharana, renders this timeless raga with a command that balances rigour and spontaneity.',
+  'Ritu Agarwal',
+  'Ritu Agarwal is a senior vocalist of the Jaipur-Atrauli gharana, having trained under Padma Bhushan Kishori Amonkar for over two decades.',
+  '["Hindustani","Vocal","Gharana","Evening Raga"]',
+  1, 1, 0, 0, 34
+);
+
+INSERT OR REPLACE INTO events (id, slug, title, subtitle, category, date, time, venue, city, price, price_label, image, hero_image, duration, language, age_rating, description, long_description, artist, artist_bio, tags, is_featured, is_promoted, is_new, sold_out, seats_left)
+VALUES (
+  '2',
+  'between-two-worlds-theatre',
+  'Between Two Worlds',
+  'A Play in Two Acts',
+  'Theatre',
+  '4 Jul 2025',
+  '8:00 PM',
+  'Prithvi Theatre',
+  'Mumbai',
+  500,
+  '₹500 – ₹1,200',
+  'https://images.unsplash.com/photo-1503095396549-807759245b35?w=800&q=80',
+  'https://images.unsplash.com/photo-1503095396549-807759245b35?w=1400&q=90',
+  '1 hr 45 min',
+  'English',
+  '14+',
+  'A razor-sharp play about identity, belonging, and the quiet violence of assimilation.',
+  'Between Two Worlds dissects the immigrant experience with surgical precision. Written by Ananya Krishnamurthy and directed by Arjun Menon, this two-act play follows the Sharma family across three generations.',
+  'Ananya Krishnamurthy (Writer) · Arjun Menon (Director)',
+  'Ananya Krishnamurthy won the META Award for Best Original Script in 2023.',
+  '["Original Play","Drama","English","Award-Winning"]',
+  0, 0, 1, 0, 12
+);

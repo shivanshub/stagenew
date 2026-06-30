@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { ArrowRight, Music, Theater, Mic2, Zap, MapPin } from 'lucide-react';
 import { EVENTS, FEATURED_EVENT } from '../data/events';
+import { useEvents } from '../hooks/useEvents';
 import EventCarousel from '../components/EventCarousel';
 import EventCard from '../components/EventCard';
 import HeroSlideshow from '../components/HeroSlideshow';
@@ -24,6 +25,10 @@ const CITIES = [
 
 export default function HomePage() {
   const [searchOpen, setSearchOpen] = useState(false);
+  const { events: dbEvents, loading } = useEvents();
+
+  // Use DB events if loaded, otherwise fall back to static data
+  const allEvents = dbEvents.length > 0 ? dbEvents : EVENTS;
 
   useEffect(() => {
     const handleOpenSearch = () => setSearchOpen(true);
@@ -31,9 +36,9 @@ export default function HomePage() {
     return () => window.removeEventListener('open-search', handleOpenSearch);
   }, []);
 
-  const featuredEvents = EVENTS.filter(e => e.isFeatured);
-  const promotedEvents = EVENTS.filter(e => e.isPromoted);
-  const hero = FEATURED_EVENT;
+  const featuredEvents = allEvents.filter(e => e.isFeatured);
+  const promotedEvents = allEvents.filter(e => e.isPromoted);
+  const hero = featuredEvents[0] ?? FEATURED_EVENT;
 
   return (
     <>
